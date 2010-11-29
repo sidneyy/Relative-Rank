@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <META name="Author" Content="Optimix Technology">
+            <meta name="copyright" content="Copyright &copy; 2010 OPTIMIX" />
+            <meta name="Robots" contect="none,noindex,nofollow,noarchive">
+                <title>Cross-Marketplace Optimizer <%=action_name %></title>
+                <!-- add your meta tags here -->
+                <link href="/css/my_layout.css" rel="stylesheet" type="text/css" />
+                <!--[if lte IE 7]>
+			<link href="/css/patches/patch_my_layout.css" rel="stylesheet" type="text/css" />
+		<![endif]-->
+                <script type="text/javascript">
+			
+                    function getCookie(c_name){
+                        if (document.cookie.length > 0) {
+                            c_start = document.cookie.indexOf(c_name + "=");
+                            if (c_start != -1) {
+                                c_start = c_start + c_name.length + 1;
+                                c_end = document.cookie.indexOf(";", c_start);
+                                if (c_end == -1)
+                                    c_end = document.cookie.length;
+                                return unescape(document.cookie.substring(c_start, c_end));
+                            }
+                        }
+                        return "";
+                    }
+			
+                    function checkCookie(c_name){
+                        name = getCookie(c_name);
+                        if (name != null && name != "") {
+                            return 1
+                        }
+                        else {
+                            return 0
+                        }
+                    }
+			
+			
+                    function setCookie(c_name, value, expiredays){
+                        var exdate = new Date();
+                        exdate.setDate(exdate.getDate() + expiredays);
+                        document.cookie = c_name + "=" + escape(value) +
+                            ((expiredays == null) ? "" : ";expires=" + exdate.toUTCString());
+                    }
+			
+			
+                    function go_select(id){
+                        //fav1 = getCookie('fav1');
+                        //fav2 = getCookie('fav2');
+			    
+                        //fav2 = fav1;
+                        //fav1 = id;
+			    
+                        //setCookie('fav1', fav1, 9999);
+                        //setCookie('fav2', fav2, 9999);
+                        window.location = "/campaigns/index/" + id;
+			    
+                    }
+			
+                </script>
+                <!-- include javascripts --><%= javascript_include_tag("https://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js") %>
+                <%= javascript_include_tag("https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js") %>
+                <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
+                <%= javascript_include_tag 'application' %>
+
+                <!--//include javascripts //-->
+                </head>
+                <body>
+                    <div class="page_margins">
+                        <div id="border-top">
+                            <div id="edge-tl">
+                            </div>
+                            <div id="edge-tr">
+                            </div>
+                        </div>
+                        <div class="page" id="wrapper">
+                            <div id="header">
+                                <div id="topnav">
+                                    <div>
+                                        <% time = Time.new %>
+                                        <% if !session[:user_name] %>
+                                        <% else %>
+                                            <% if session[:user_name]!=nil %>
+                                                <b>Welcome <%=session[:name].humanize %> (<% if session[:group_type].to_s.upcase == "ADMINISTRATORS" %><%= link_to session[:group_type].capitalize, users_path %>| <% else %>
+                                                        <%=session[:group_type].capitalize %>|<% end %><%= link_to 'Change Password',{ :controller => :users, :action => 'edit', :id =>session[:user_id] } %>| <%=link_to 'Sign Out', :controller => :admin, :action => 'logout' %>)</b>
+                                                <em>, <%=Time.now.strftime("%a #{time.day.ordinalize} %b, %Y") %></em>
+                                            <%end %>
+                                        <%end %>
+                                    </div>
+                                </div>
+								<%= link_to "<div id=\"logo\"></div>", clients_path %>
+                                
+                            </div>
+                            <div id="nav">
+                                <!-- skiplink anchor: navigation --><a id="navigation" name="navigation"></a>
+                                <div class="hlist">
+                                    <div id="clist">
+                                        <form class="yform">
+                                            <div class="type-select">
+                                                <select name="client_id" onchange=go_select(this.options[this.selectedIndex].value)>
+                                                    <option disabled="disabled">Please choose ... </option>
+                                                    <% if not @manageable_clients.nil? %>
+														<% if @last_clients.size >= 1 %>
+                                                            <optgroup label="Recently you visited ...">
+                                                                <% @last_clients.each do |c| %>
+																	<option value='<%=c.id.to_s%>'><%=c.clientname%></option>
+                                                                <% end %>
+                                                            </optgroup>
+                                                        <% end %>
+                                                        <optgroup label="All Accounts">
+                                                            <% @manageable_clients.each do |row| %>
+                                                                <% if row.status.upcase.include?("ACTIVE") %>
+                                                                    <%= "<option value='"+ row.id.to_s + "'>" + row.clientname + "</option>" %>
+                                                                <% end %>
+                                                            <% end %>
+                                                        </optgroup>
+                                                    <% end %>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- main navigation: horizontal list -->
+                                    <ul>
+                                        <% if not action_name=="login" %>
+                                            <% if session[:campaign_id] %>
+                                                <% if controller_name.upcase =="SEM" %>
+                                                    <li style="visibility:visible;" class="active">
+                                                        <strong>Dashboard</strong>
+                                                    <% else %>
+                                                        <li style="visibility:visible;">
+                                                            <%="<a href=\"/sem?campaign_id=#{session[:campaign_id]}\">Dashboard</a>" %>
+                                                        <% end %>
+                                                    </li>
+                                                <% end %>
+
+    <%# ----- Settings tab started ----- %>
+                                                <% if session[:client_id] %>
+                                                    <% if (controller_name.upcase == "CAMPAIGNS" or controller_name.upcase == "SEARCHENGINES") %>
+                                                        <li style="visibility:visible;" class="active">
+                                                            <strong>All Portfolios</strong>
+                                                        <% else %>
+                                                            <li style="visibility:visible;">
+                                                                <%="<a href=\"/campaigns/index/#{session[:client_id]}\">All Portfolios</a>" %>
+                                                            <% end %>
+                                                        </li>
+                                                    <% end %>
+    <%# ----- Settings tab ended ----- %>
+
+                                                    <% if session[:searchengine_id] %>
+                                                        <% if controller_name.upcase =="REPORT" %>
+															<li style="visibility:visible;" class="active">
+															<strong>Reports</strong>
+														<% else %>
+															<li style="visibility:visible;">
+																<%="<a href=\"/report/basicsearch?searchengine_id=#{session[:searchengine_id]}\">Reports</a>" %>
+														<% end %>
+                                                            </li>
+														<% if controller_name.upcase =="OPTIMIZE" %>
+															<li style="visibility:visible;" class="active">
+																<strong>Optimize</strong>
+														<% else %>
+															<li style="visibility:visible;">
+																<%="<a href=\"/optimize?api_id=#{session[:searchengine_id]}&optimizetype=Conservative\">Optimize</a>" %>
+														<% end %>
+                                                            </li>
+													
+													<% end %>
+												<% end %>
+                                                        </ul>
+                                                        </div>
+                                                        </div>
+                                                        <div id="main">
+                                                            <div id="col1">
+                                                                <div id="col1_content" class="clearfix">
+                                                                	
+																	<% if session[:user_name] and session[:user_name]!=nil %>
+                                                                    <div id="left_column_client" class="remark">
+																		<em>Client</em> <small>
+																		<%= link_to '[Add]', new_client_path if session[:group_type] != "GUESTS" %> 
+																		<%= link_to '[Edit]', edit_client_path(@current_client) if session[:group_type] != "GUESTS" and @current_client %> 
+																		<%= link_to '[All]', clients_path %></small>
+                                                                        <%= "<span>" + @current_client.clientname + "</span>" if @current_client %>
+                                                                    </div>
+																	<div id="left_column_campaign" class="remark">
+																		<em>Portfolio</em> <small>
+																		<%= link_to '[Add]', new_campaign_path if session[:group_type] != "GUESTS" and session[:client_id] %> 
+																		<%= link_to '[Edit]', edit_campaign_path(@current_campaign) if session[:group_type] != "GUESTS" and @current_campaign%> 
+																		<%= link_to '[All]', campaigns_path if session[:client_id] %></small>
+                                                                        <%= "<span>" + @current_campaign.campaignname + "<small>(SEM)</small></span>" if @current_campaign %> 
+                                                                    </div>
+                                                                    <div id="left_column_searchengine" class="remark">
+                                                                        <em>Account</em>
+																		<small>
+																		<%= link_to '[Add]', new_searchengine_path if session[:group_type] != "GUESTS" and session[:campaign_id]%> 
+																		<%= link_to '[Edit]', edit_searchengine_path(@current_searchengine) if session[:group_type] != "GUESTS" and @current_searchengine %> 
+																		<%= link_to '[All]', :controller=>"sem", :campaign_id => session[:campaign_id] if session[:campaign_id] %></small>
+                                                                        <%= "<span>" + @current_searchengine.searchenginename + "</span>" if @current_searchengine %>
+                                                                    </div>
+																	<% end %>
+                                                                    <%= yield :left_column %>
+
+                                                                </div>
+                                                            </div>
+                                                            <div id="col3">
+                                                                <% flash.each do |key, msg| %>
+                                                                    <%= content_tag :div, msg, :class => key, :id => "Message" %>
+                                                                <% end %>
+
+                                                                <div id="col3_content" class="clearfix">
+                                                                    <!-- add your content here -->
+                                                                    <%= yield.force_encoding('utf-8') %>
+                                                                </div>
+                                                                <!-- IE Column Clearing -->
+                                                                <div id="ie_clearing">
+                                                                    &#160;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- begin: #footer -->
+                                                        <div id="footer">
+					Copyright<sup>©</sup>2010 iClick Interactive Asia Limited.　All Rights Reserved. <%=request.env['SERVER_NAME']%>
+                                                        </div>
+                                                        </div>
+                                                        <div id="border-bottom">
+                                                            <div id="edge-bl">
+                                                            </div>
+                                                            <div id="edge-br">
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        <!-- jquery and other functions-->
+                                                        <% javascript_tag do %>
+                                                            $(document).ready(function() {
+                                                                <%= yield :js_ready %>
+                                                            });
+                                                        <% end %>
+                                                        <!-- //jquery and other functions //-->
+                                                        </body>
+                                                        </html>

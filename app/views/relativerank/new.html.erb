@@ -1,0 +1,62 @@
+<h4>Create New Relative Rank Strategy for Cathay Pacific (id: 29039)</h4>
+
+<div style="width:630px">
+	<form action="" class="yform columnar" id="new_strategy" method="post">
+		<div class="type-text">
+			<label class="align" for="strategy_name">Name:</label>
+			<input id="strategy_name" name"strategy_name" size="30" type="text">
+		</div>
+		<fieldset>
+			<legend>Competitor Information</legend>
+				<div class="type-text">
+					<label class="align" for="competitor_name">Name:</label>
+					<input id="competitor_name" name"competitor_name" size="30" type="text" />
+				</div>
+				<div class="type-text">
+					<label class="align" for="display_url">Display URL:</label>
+					<input id="display_url" name"display_url" size="30" type="text" />
+				</div>
+				<div class="type-select">
+					<label class="align" for="relative_rank">Relative Rank Target:</label>
+					<select id="relative_rank" name="relative_rank">
+						<option value="Right Above">Right Above</option>
+						<option value="Right Below">Right Below</option>
+					</select>
+				</div>
+				<div class="type-select">
+					<label class="align" for="Bidding Frequency">Bidding Frequency:</label>
+					<select id="Bidding Frequency" name="relative_rank">
+						<option value="High">High</option>
+						<option value="Middle">Middle</option>
+						<option value="Low">Low</option>
+					</select>
+				</div>				
+				<div class="type-text">
+					<label class="align" for="max_bid">Max Bid:</label>
+					<input id="max_bid" name"max_bid" size="30" type="text" class="price" />
+				</div>				
+		</fieldset>
+		<fieldset>
+			<legend>Keyword Groups</legend>
+				<div class="type-check">
+					<input id="Baidu Generic Terms" name"keyword_group" size="30" type="checkbox" />
+					<label class="align" for="Baidu Generic Terms">Baidu Generic Terms</label>
+				</div>
+				<div class="type-check">
+					<input id="Yahoo+Google Converting Terms" name"keyword_group" size="30" type="checkbox" />
+					<label class="align" for="Yahoo+Google Converting Terms">Yahoo+Google Converting Terms</label>
+				</div>	
+				<div class="type-check">
+					<input id="Google Generic Terms" name"keyword_group" size="30" type="checkbox" />
+					<label class="align" for="Google Generic Terms">Google Generic Terms</label>
+				</div>	
+				<div class="type-check">
+					<input id="Baidu New Terms" name"keyword_group" size="30" type="checkbox" />
+					<label class="align" for="Baidu New Terms">Baidu New Terms</label>
+				</div>					
+		</fieldset>
+		<div class="type-button">
+			<input name="commit" type="submit" value="Create" />
+		</div>		
+	</form>
+</div>

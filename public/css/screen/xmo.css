@@ -1,0 +1,445 @@
+#main
+{
+	height: auto;
+	min-height: 400px;
+}
+#logo
+{
+	background: url(/images/iclick.png) no-repeat;
+	height: 73px;
+	width: 160px;
+}
+body
+{
+	color: #2F2F2F;
+	font-family: "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+}
+#clist
+{
+	position: absolute;
+	right: 0;
+	top: 2px;
+}
+#header
+{
+	background-image: none;
+}
+.hlist #loginbox
+{
+	width: 100%;
+}
+.head
+{
+	background-color: #F4F4F4;
+	border-bottom: 1px solid #DDD;
+	margin-bottom: .5em;
+	margin-top: 1em;
+	padding: .2em;
+}
+.sectionhead
+{
+	border-top: 1px solid #DDD;
+	padding: .2em;
+}
+.remark
+{
+	margin-bottom: .7em;
+	padding-right: 20px;
+}
+.preset ul li a
+{
+	-webkit-text-size-adjust: none;
+	font-size: 0.8em;
+	line-height: 1em;
+}
+.preset ul li {
+	line-height: 1em;
+	margin-bottom: .5em
+}
+.small small
+{
+	line-height: 1.875em;
+	font-size: 89%;
+	-webkit-text-size-adjust: none;	
+}
+.edit
+{
+	font-size: 0.8em;
+	margin-left: 2em;
+	color: #fff;
+}
+.border_right
+{
+	border-right: 1px solid #AFAFAF;
+}
+.remark em
+{
+	background: url(/images/5.gif) no-repeat center left;
+	color: #6F6F6F;
+	font-size: 89%;
+	padding-left: 10px;
+	font-style: normal;
+	font-family: Arial,Helvetica,sans-serif;	
+	-webkit-text-size-adjust: none;
+}
+.remark strong
+{
+	color: #4F4F4F;
+	display: block;
+	font-size: 1.4em;
+	padding-left: .5em;
+}
+.remark span
+{
+	display: block;
+	font-size: 1em;
+	padding-left: .9em;
+}
+.note, .important, .warning
+{
+	border-width: 1px;
+}
+.yform
+{
+	border-radius: 5px;
+	font-family: "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+	moz-border-radius: 5px;
+	overflow-x: visible;
+	overflow-y: visible;
+	webkit-border-radius: 5px;
+}
+.yform legend
+{
+	color: #777;
+	font-family: "Trebuchet MS";
+	font-size: 0.9em;
+}
+.yform input,.yform textarea,.yform select,.yform optgroup
+{
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 100%;
+	font-weight: bold;
+	-webkit-text-size-adjust: none;
+	valign: middle;
+}
+div.type-text input,div.type-select select
+{
+	max-width: 320px;
+}
+div.type-text textarea
+{
+	height: 300px;
+	color: #365682;
+	font-family: Arial;
+	font-size: 84%;
+	-webkit-text-size-adjust: none;
+}
+#clist .yform
+{
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+}
+#clist .yform .type-select
+{
+	margin: 0;
+	padding: 0;
+}
+#clist .yform .type-select select
+{
+	border: 1px solid #7F7777;
+	padding: .1em;
+	width: 300px;
+}
+#clist .yform .type-select select optgroup
+{
+	font-family: Arial,Helvetica,sans-serif;
+	border: 1px solid #000;
+	color: #999;
+}
+#clist .yform .type-select select option
+{
+	font-family: Arial,Helvetica,sans-serif;
+	color: #000;
+	font-style: bold;
+	border: 1px solid #000;
+	padding-left: 30px;
+}
+#clist .yform .type-select select
+{
+	font-family: Arial,Helvetica,sans-serif;
+	color: #4e4848;
+	font-size: 90%;
+	font-weight: bold;
+	padding-left: 20px;
+	-webkit-text-size-adjust: none;
+}
+label
+{
+	font-style: italic;
+}
+.remark small
+{
+	padding-left: 10px;
+	font-family: Arial;
+	font-size: 82%;
+	-webkit-text-size-adjust: none;
+}
+div.hlist
+{
+	background: url(/images/generate_shared_stripe.php.png);
+}
+#topnav
+{
+	color: #2F2929;
+}
+.hlist a:link,.hlist a:visited
+{
+	color: #000;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 84%;
+	font-weight: 700;
+}
+h1,h2,h3,h4,h5,h6
+{
+	font-family: "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+}
+tr.even td
+{
+	background: #EFEFEF;
+}
+a:link
+{
+	color: #666;
+}
+a:visited
+{
+	color: #000;
+}
+table
+{
+	background-color: #FFF;
+	border-top: 1px #888 solid;
+	margin-bottom: 2em;
+	font-family: Arial;
+	font-size: 89%;
+	-webkit-text-size-adjust: none;
+}
+tr,td
+{
+	border: 1px solid #dbdbdb;
+}
+th,tr,td
+{
+	padding: .4em;
+}
+.alignright
+{
+	padding-right: .5em;
+	text-align: right;
+}
+.nominwidth
+{
+	min-width: 0px !important;
+}
+tr.summary td
+{
+	background-attachment: scroll;
+	background-color: #E5E5E5;
+	background-image: none;
+	background-position: 0 0;
+	background-repeat: repeat;
+	border-top-color: #C3D9FF;
+	border-top-style: normal;
+	border-top-width: thick;
+	font-weight: bold;
+	moz-background-clip: border;
+	moz-background-origin: padding;
+	moz-background-size: auto auto;
+}
+.yui-skin-sam .yui-calendar
+{
+	font-family: "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif!important;
+}
+.pagination,.pagination a
+{
+	vertical-align: top;
+}
+tbody th
+{
+	background: #C3D9FF url(/images/generate_shared_stripe.php4.png);
+	border: 1px solid #FFF8F8;
+	border-bottom: 1px #888 solid;
+}
+.yform .type-button input[type=submit]
+{
+	background: none;
+	display: block;
+	padding: 10px 20px 10px 20px;
+}
+.clear
+{
+	overflow: hidden;
+	width: 100%;
+}
+a.button
+{
+	background: transparent url(/images/bg_button_a.gif) no-repeat scroll top right;
+	color: #444;
+	display: block;
+	float: left;
+	font: normal 12px arial, sans-serif;
+	font-family: "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+	height: 24px;
+	margin-bottom: 1em;
+	margin-right: 6px;
+	padding-right: 18px;
+	text-decoration: none;
+}
+a.button span
+{
+	background: transparent url(/images/bg_button_span.gif) no-repeat;
+	display: block;
+	line-height: 14px;
+	padding: 5px 0 5px 18px;
+}
+a.button:active
+{
+	background-position: bottom right;
+	color: #000;
+	outline: none;
+}
+a.button:active span
+{
+	background-position: bottom left;
+	padding: 6px 0 4px 18px;
+}
+.contentblock
+{
+}
+.HalfpageChart
+{
+	margin-right: 0px;
+}
+.contenttop
+{
+	background: #EDF2F8 url(/images/8899aaffffff6sinusoidal.png);
+	height: .5px;
+}
+.yform .type-text textarea,.yform .type-select select
+{
+	width: 100%;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 90%;
+	color: #333;
+	-webkit-text-size-adjust: none;
+}
+.yform .type-text input
+{
+	width: 90%;
+}
+.hlist,fieldset
+{
+	position: relative;
+}
+tbody tr:hover th[scope=row],tbody tr:hover tbody th.sub,tbody tr:hover td
+{
+	background: #E0E5EF;
+}
+input[type="text"]
+{
+	background: url('/images/EFF7FFffffff30sinusoidal.png');
+	border: 1px solid #85b1de;
+	/*min-width: 300px;*/
+	padding: .3em;
+	width: 98%;
+}
+select
+{
+	background: url('/images/EFF7FFffffff30sinusoidal.png');
+}
+.rightcorner .button
+{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+.yform label
+{
+	display: inline;
+	font-style: normal;
+	font-family: Arial;
+	font-size: 88%;
+	font-weight: bold;
+	color: #000;
+	-webkit-text-size-adjust: none;
+	padding-left: 10px;
+	text-indent: -15px;
+}
+.yform input
+{
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	top: -1px;
+	vertical-align: middle;
+}
+.editable
+{
+	border-bottom: 1px dashed #716FFF;
+}
+.editbox
+{
+	background-color: #FFF;
+	border: 1px solid #99B9DF;
+	border-radius: 5px;
+	display: none;
+	height: 70px;
+	left: 0;
+	moz-border-radius: 5px;
+	padding: 10px;
+	position: absolute;
+	text-align: left;
+	top: -10px;
+	webkit-border-radius: 5px;
+	width: 140px;
+}
+.price, .drange
+{
+	width: 64px !important;
+}
+caption
+{
+	color: #0081AF;
+}
+.notice, .error
+{
+	background: #efe;
+	border: 2px #484 solid;
+	color: #040;
+	margin-bottom: 1em;
+	padding: 10px;
+}
+.tooltip {
+	border-bottom: 1px dotted #000000;
+	color: #000000; 
+	outline: none;
+	text-decoration: none;
+	position: relative;
+}
+.tooltip span {
+	margin-left: -39em;
+	top: 10px;
+	position: absolute;
+	z-index: 2999;
+}
+.tooltip:hover span {
+	font-family: Calibri, Tahoma, Geneva, sans-serif;
+	position: absolute;
+	z-index: 999499;
+	margin-left: 10em;
+	width: 250px;
+}
+.help { background: #9FDAEE; border: 1px solid #2BB0D7; }
